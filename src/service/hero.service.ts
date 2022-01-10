@@ -51,6 +51,8 @@ export interface House {
     "swornMembers": string[] // CHAR REF
 }
 
+export type Category = Book | Character | House
+
 export const fetchUtil = async (url: string): Promise<Book | Character | House> => {
     const res = await fetch(url, {
         method: 'GET'
@@ -67,6 +69,5 @@ export const useItem = (url: string) => {
                 setItem(resItem)
             })
     }, [url])
-
     return item
 }

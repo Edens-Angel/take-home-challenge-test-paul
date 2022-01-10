@@ -1,14 +1,16 @@
 import React, { FC } from 'react'
-import { Book, Character, House } from '../service/hero.service'
+import { Book, Category, Character, House } from '../service/hero.service'
 import BookPage from './Book'
 import CharacterPage from './Character'
 import HousePage from './House'
 
 export interface PageProps {
     selectActive: (url: string) => void
+    activeFilter?: Category
 }
 
 export const Page: FC<PageProps & {item: Book | House | Character}> = ({ item , ...rest}) => {
+
     if (item.url.includes('books')) {
         return <BookPage {...rest} book={item as Book} />
     }
